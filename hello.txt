@@ -21,3 +21,24 @@ adding code
     <div class="row">
   <div class="heading">MY ACCCOUNT</div>
   </div>
+  <div class="row">
+      <div class="d1">
+          <asp:Button ID="btnprofile" runat="server" Text="View Proile "/>
+          <asp:Button ID="btnedit" runat="server" Text="Edit Profile" />
+          <asp:Button ID="btnpassword" runat="server" Text="Change Password"/>
+          <asp:Button ID="btnimage" runat="server" Text="Change Image" />
+      </div>
+      </div>
+     
+      
+   <div class="main2">
+ <asp:panel ID="panel1" runat="server">
+ 
+  <div class="row">
+  <div class="heading">View Proile</div>
+  <div class="c1">First name</div>
+  <div class="c2">
+  <asp:Label ID="lblfn" runat="server"></asp:Label>
+  </div>
+  <div class="c3"></div>
+  </div>
