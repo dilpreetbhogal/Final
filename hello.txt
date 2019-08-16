@@ -1,16 +1,5 @@
-hi m using git
-dilpreet
-adding code
 
-<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.master" AutoEventWireup="true" CodeFile="admin_account.aspx.cs" Inherits="admin_account" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
-<div class ="main">
-    <div class="row">
-  <div class="heading">MY ACCCOUNT</div>
 <%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.master" AutoEventWireup="true" CodeFile="admin_account.aspx.cs" Inherits="admin_account" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
