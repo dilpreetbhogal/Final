@@ -54,3 +54,26 @@
       <div class="c2">
           <asp:TextBox ID="txtfn" runat="server"></asp:TextBox>
       </div>
+	    <div class="c3">
+      <asp:RequiredFieldValidator ID="rfvfn" runat="server" ErrorMessage="Text must not be empty" ControlToValidate="txtfn" ValidationGroup="p2" Display="Dynamic">
+    </asp:RequiredFieldValidator>
+      
+      </div>
+     </div>
+<div class="row">
+<div class="c1">Country</div>
+<div class="c2">
+<asp:DropDownList ID="ddcountry" runat="server" DataValueField="Countryid" DataTextField="Countryname" 
+    AutoPostBack="true">
+    </asp:DropDownList>
+    </div>
+<div class="c3"></div>
+</div>
+     <div class="row">
+     <div class="c1">State</div>
+     <div class="c2">
+     <asp:DropDownList ID="ddstate" runat="server" DataValueField="Stateid" DataTextField="Statename" 
+    AutoPostBack="true">
+    </asp:DropDownList>
+     </div>
+     <div class="c3"></div>
