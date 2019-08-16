@@ -1,0 +1,50 @@
+<%@ Page Title="" Language="C#" MasterPageFile="guestmaster.master" AutoEventWireup="true" CodeFile="admin_login.aspx.cs" Inherits="admin_login" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<div class="contact-form">
+     <h4>admin Login</h4>
+ <div class="form">
+<label style="color: #000000">E-Mail</label>
+ <div class="input">
+  <span class="name"></span>
+    <asp:TextBox ID="txtmail" runat="server">
+    </asp:TextBox>
+</div>
+ 
+    <asp:RegularExpressionValidator ID="revmail" runat="server" 
+        ErrorMessage="Mismatch Expression" ControlToValidate="txtmail" 
+        ValidationGroup="feedback" Display="Dynamic" 
+        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+  </div>
+
+
+ 
+  <div class="form">
+  <label style="color: #000000">Password</label>
+<div class="input">
+<span class="name"></span>
+    <asp:TextBox ID="txtpass" runat="server" TextMode="Password">
+    </asp:TextBox>
+</div>
+    <asp:RequiredFieldValidator ID="rfvpass" runat="server" ErrorMessage="Text must not be empty" ControlToValidate="txtpass" ValidationGroup="feedback" Display="Dynamic">
+    </asp:RequiredFieldValidator>
+  </div>
+
+  <div class="form2">
+
+    <asp:Button ID="Button1" runat="server" Text="LOGIN" 
+        ValidationGroup="feedback" onclick="btnlogin_Click"  />
+</div>
+  
+  </div>
+
+ <div class="error"><asp:Label ID="lblerror" runat="server"></asp:Label>
+</div>
+
+
+
+
+</asp:Content>
+
