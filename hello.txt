@@ -31,3 +31,26 @@
   </div>
   <div class="c3"></div>
   </div>
+  <div class="row">
+<div class="c1">Email</div>
+<div class="c2">
+<asp:Label ID="lblemail" runat="server"></asp:Label>
+</div>
+<div class="c3">
+</div>
+</div>
+
+    
+ </asp:panel>
+ </div>
+ 
+      <div class="main3">
+    <asp:Panel ID="panel2" runat="server">
+      <div class="row">
+      <div class="heading">Edit Profile</div>
+      </div>
+      <div class="row">
+      <div class="c1">First name</div>
+      <div class="c2">
+          <asp:TextBox ID="txtfn" runat="server"></asp:TextBox>
+      </div>
