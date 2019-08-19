@@ -1,0 +1,162 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="guestmaster.master.cs" Inherits="guestmaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="News - Clean HTML5 and CSS3 responsive template">
+<meta name="author" content="MyPassion">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>My Jobs</title>
+
+<link rel="shortcut icon" href="original/img/sms-4.ico" />
+
+<!-- STYLES -->
+<link rel="stylesheet" type="text/css" href="original/css/superfish.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="original/css/fontello/fontello.css" />
+<link rel="stylesheet" type="text/css" href="original/css/flexslider.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="original/css/ui.css" />
+<link rel="stylesheet" type="text/css" href="original/css/base.css" />
+<link rel="stylesheet" type="text/css" href="original/css/style.css" />
+<link rel="stylesheet" type="text/css" href="original/css/960.css" />
+<link rel="stylesheet" type="text/css" href="original/css/devices/1000.css" media="only screen and (min-width: 768px) and (max-width: 1000px)" />
+<link rel="stylesheet" type="text/css" href="original/css/devices/767.css" media="only screen and (min-width: 480px) and (max-width: 767px)" />
+<link rel="stylesheet" type="text/css" href="original/css/devices/479.css" media="only screen and (min-width: 200px) and (max-width: 479px)" />
+<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]> <script type="text/javascript" src="original/js/customM.js"></script> <![endif]-->
+
+ <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+     </head>
+     <body>
+    <form id="form1" runat="server">
+   <asp:Label ID="lblerror" runat="server"></asp:Label>
+<!-- Body Wrapper -->
+<div class="body-wrapper">
+	<div class="controller">
+    <div class="controller2">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="container">
+                <div class="column">
+                    <div class="logo">
+                        <a href="index.aspx"><img src="original/img/logo.png" alt="MyPassion" /></a>
+                    </div>
+                    
+                    <div class="search">
+                        <div >
+                            <asp:TextBox type="text" runat="server" ID="searchtext" PlaceHolder="Search." onblur="if(this.value=='') this.value='Search.';" onfocus="if(this.value=='Search.') this.value='';" CssClass="ft"/>
+                            <asp:Button type="submit" value="" CssClass="fs" runat="server" ValidationGroup="search" />
+                       <asp:RequiredFieldValidator runat="server" ControlToValidate="searchtext" ValidationGroup="search" ErrorMessage="Search is required"></asp:RequiredFieldValidator>
+                             </div>
+                    </div>
+                    
+                    <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="sf-menu">
+                            <li class="current"><a href="index.aspx">Home</a></li>
+                           
+                         <asp:Repeater runat="server" ID="mainrep" OnItemDataBound="mainrep_OnItemDataBound"><ItemTemplate>
+                             <li>
+                                 <asp:Literal runat="server" id="mainid" Visible="False" Text='<%#Eval("maincategoryid") %>'></asp:Literal>
+                            	<a href='<%# GenerateURL(Eval("maincategoryid"),Eval("maincategoryname")) %>' runat="server"><%#Eval("maincategoryname") %></a>
+                                <ul>
+                                
+                         <asp:Repeater runat="server" ID="subrep" OnItemDataBound="subrep_OnItemDataBound"><ItemTemplate>
+                             <li><i class="icon-right-open"></i>
+                                 <asp:Literal runat="server" id="subid" Visible="False" Text='<%#Eval("subcategoryid") %>'></asp:Literal>
+                            	<a href='<%# GenerateSUBURL(Eval("subcategoryid"),Eval("subcategoryname")) %>' runat="server"><%#Eval("subcategoryname") %></a>
+                             
+                                <ul>
+                                
+                         <asp:Repeater runat="server" ID="subrep"><ItemTemplate>
+                             <li><i class="icon-right-open"></i>
+                              <a href='<%# GenerateChildURL(Eval("childcategoryid"),Eval("childcategoryname")) %>' runat="server"><%#Eval("childcategoryname") %></a>
+                             
+                                </li>
+                             </ItemTemplate></asp:Repeater>
+                                  
+                                </ul>                                  
+                                 
+                                        
+                                 </li>
+                             </ItemTemplate></asp:Repeater>
+                                  
+                                </ul></li>
+                                
+                            
+                        </ItemTemplate></asp:Repeater>   
+                         <li ><a href="feedback.aspx">FeedBack</a></li>
+                          <li><a href="contactus.aspx">Contact Us</a></li>
+                        </ul>
+                        
+                    </nav>
+                    <!-- /Nav -->
+                </div>
+            </div>
+        </header>
+        <!-- /Header -->
+        
+        
+        <!-- Content -->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder> 
+        <section id="content">
+            <div class="container">
+            	 
+               	
+                <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>    
+                
+                
+            </div>    
+        </section>
+        <!-- / Content -->
+        
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="container">
+            	
+                <p class="copyright">Copyright 2016. All Rights Reserved</p>
+            </div>
+        </footer>
+        <!-- / Footer -->
+    
+    </div>
+	</div>
+</div>
+<!-- / Body Wrapper -->
+
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="original/js/jquery.js"></script>
+<script type="text/javascript" src="original/js/easing.min.js"></script>
+<script type="text/javascript" src="original/js/1.8.2.min.js"></script>
+<script type="text/javascript" src="original/js/ui.js"></script>
+<script type="text/javascript" src="original/js/carouFredSel.js"></script>
+<script type="text/javascript" src="original/js/superfish.js"></script>
+<script type="text/javascript" src="original/js/customM.js"></script>
+<script type="text/javascript" src="original/js/flexslider-min.js"></script>
+<script type="text/javascript" src="original/js/tweetable.js"></script>
+<script type="text/javascript" src="original/js/timeago.js"></script>
+<script type="text/javascript" src="original/js/jflickrfeed.min.js"></script>
+<script type="text/javascript" src="original/js/mobilemenu.js"></script>
+
+<!--[if lt IE 9]> <script type="text/javascript" src="original/js/html5.js"></script> <![endif]-->
+<script type="text/javascript" src="original/js/mypassion.js"></script>
+
+    
+    </form>
+</body>
+</html>
